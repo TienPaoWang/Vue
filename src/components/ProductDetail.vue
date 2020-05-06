@@ -7,30 +7,45 @@
       <div class="product">
         <div class="productname">${{ currentProduct.name }}</div>
         <div> <h3> ${{ currentProduct.price }}  </h3></div>
-          <div class="shopping_button"> <b-button href="#" pill variant="success" size="lg" class="addcart btn-large btn-block" @click="addcart(item)"> 
+          <div class="shopping_button"> <b-button href="#" pill variant="success" size="lg" class="addcart btn-large btn-block" @click="addcart(currentProduct)"> 
               Buy Now
             </b-button></div>
      
-        <div class="shopping_button"> <b-button href="#"   pill variant="primary" size="lg" class="addcart btn-large btn-block" @click="addcart(item)"> 
+        <div class="shopping_button"> <b-button href="#"   pill variant="primary" size="lg" class="addcart btn-large btn-block" @click="openModal()"> 
               More Information
             </b-button></div>
+            
       </div>
     </div>
+    <modal :content="currentProduct.content"></modal>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters,mapActions } from "vuex";
+import modal from './Modal';
 export default {
+  components:{
+    modal
+  },
   computed: {
     ...mapGetters({
       currentProduct: "GET_CURRENT_DETAIL"
-    })
-  },
+    }),
+    ...mapActions(['addshoppingcart','showOrHiddenModal'])
+     },
   mounted() {
     const get = this.$store.getters.GET_CURRENT_DETAIL;
-    console.log("getter mounted=", get);
-    console.log("getter content=", get.content);
+  },
+  methods:{
+    addcart(currentProduct){
+       console.log("addcart currentProduct=",currentProduct);
+      this.$store.dispatch("addshoppingcart",currentProduct);
+    },
+    openModal(currentProduct){
+      console.log("openModal");
+        this.$store.dispatch("showOrHiddenModal");
+    }
   }
 };
 </script>
@@ -48,13 +63,12 @@ export default {
     height: 400px;
   display: flex;
   justify-content: center;
-  border-style: solid;
-  border-color: chartreuse;
+  /* border-style: solid;
+  border-color: chartreuse; */
 }
 img {
-    border-style: solid;
   max-width: 400px;
-  max-height: 400px;
+  max-height: 380px;
 }
 .product{
     width: 400px;

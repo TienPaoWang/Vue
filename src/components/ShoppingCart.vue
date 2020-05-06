@@ -10,11 +10,12 @@
           <img :src="item.picture" alt="" class="product-image" />
           <h1 class="product-name">{{ item.name }}</h1>
           <span class="product-price">${{ item.price }}</span>
-          <b-button @clcik="removeitem(index)">remove</b-button>
+          <button @click="remove(index)">X</button>
+           
         </li>
       </transition-group>
     </ul>
-    <div class="total_price" v-if="totalnumber > 0">
+    <div class="total_price" v-if="GET_TOTAL_NUMBER_PRODUCTS > 0">
       <h1>Total price: ${{ totalprice() }} </h1>
     </div>
     <div v-else>No product</div>
@@ -22,30 +23,36 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
       totalitemprice: 0,
       totalproducts: [],
-      totalnumber: 0 
     };
   },
     mounted(){
         this.totalprice();
   },
   computed: {
-    ...mapGetters(["GET_PRODUCTS"])
+    ...mapGetters(["GET_PRODUCTS","GET_TOTAL_NUMBER_PRODUCTS"])
+    
   },
 
   methods: {
+      ...mapActions(["removeitemcart"]),
     totalprice() {
+         console.log("totalprice");
       this.totalproducts = this.$store.getters.GET_PRODUCTS;
       this.totalnumber = this.totalproducts.length;
       this.totalitemprice = this.totalproducts.reduce((accumulator, item) => {
         return accumulator + item.price;
       }, 0);
       return this.totalitemprice;
+    },
+    remove(index){
+        console.log("removeitem item=",index);
+        this.$store.dispatch("removeitemcart",index);
     }
   }
 };
@@ -84,6 +91,5 @@ export default {
 .product-name {
   box-sizing: border-box;
 }
-.total_price {
-}
+
 </style>

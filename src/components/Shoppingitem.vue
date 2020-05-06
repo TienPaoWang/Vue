@@ -20,7 +20,7 @@
         <div class="price_content">
           <h3>${{item.price}} </h3>
           <span>
-            <b-button href="#" variant="outline-success"  class="addcart" @click="addcart(item)"> 
+            <b-button :cartIcon="true" href="#" variant="outline-success"  class="addcart" @click="addcart(item)"> 
               Add Cart
             </b-button>
           </span>

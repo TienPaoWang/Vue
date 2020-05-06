@@ -12,8 +12,7 @@
           placeholder="Please input password"
         />
       </div>
-      <button type="submit" @click="login">Login</button>
-       <button type="submit" @click="test">test</button>
+      <button type="button" @click="login">Login</button>
     </form>
     <div class="error" v-if="error">{{ error.message }}</div>
     <span
@@ -25,6 +24,7 @@
 </template>
 
 <script>
+// import firebase from 'firebase'
 import * as firebase from "firebase/app";
 import "firebase/auth";
 export default {
@@ -71,31 +71,22 @@ export default {
     //     });
     //   console.log("error");
 
-        async login() {
-        await firebase
+    login() {
+      firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(data => {
-          console.log("data=",data);
-          this.$router.push('/shopping');
+        .then(token => {
+          console.log("tokenuser=", token.user);
+          console.log("this.email=", this.email);
+          console.log("this.password=", this.password);
+          this.$router.push("/shopping");
         })
         .catch(error => {
-           console.log("error=",error);
+          console.log("error=", error);
           this.error = error;
         });
-    },
-    test(){
-       this.$router.push('/shopping');
     }
-
-
-
-
-    },
-    //  checkingstatus(){
-    // const isAuthenticated =  firebase.auth().currentUser;
-    // alert("isAuthenticated", isAuthenticated);
-    // }
+  },
 
   computed: {}
 };

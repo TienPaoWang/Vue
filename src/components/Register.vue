@@ -12,7 +12,7 @@
           placeholder="Please input password"
         />
       </div>
-      <button type="submit" @click="register">Register</button>
+      <button type="button" @click="register">Register</button>
     </form>
     <div class="error" v-if="error">{{ error.message }}</div>
 
@@ -24,7 +24,10 @@
 
 <script>
 import * as firebase from "firebase/app";
+
 import "firebase/auth";
+
+// import firebase from 'firebase'
 export default {
   data() {
     return {

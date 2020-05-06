@@ -51,7 +51,8 @@ const routes = [
   {
     path:'/shoppingcart',
     name:"ShoppingCart",
-    component:ShoppingCart
+    component:ShoppingCart,
+    meta: { requiresAuth: true }
 },
   {
     path: '/about',
@@ -70,5 +71,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isAuthenticated = firebase.auth().currentUser;
+  console.log("isauthenticated", isAuthenticated);
+  console.log("to", to);
+  if (requiresAuth && !isAuthenticated) {
+    next("/login");
+  } else {
+    next();
+  }
+});
 
 export default router

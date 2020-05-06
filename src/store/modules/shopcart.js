@@ -12,6 +12,7 @@ const state = {
     shoppingcart:[],
     productcurrentdetail:{},
     totalnumberproducts:0,
+    showModal:false
 }
 const getters = {
     GET_TOTAL_ITEM(state){
@@ -34,7 +35,12 @@ const getters = {
     GET_CURRENT_DETAIL(state){
         console.log("GET_CURRENT_DETAIL=",state.productcurrentdetail);
         return state.productcurrentdetail
+    },
+    GET_SHOW_MODEL(state){
+        console.log("state.showModal=",state.showModal);
+        return state.showModal;
     }
+
 }
 const mutations = {
     SET_TOTAL(state,valjson){
@@ -57,6 +63,19 @@ const mutations = {
         state.productcurrentdetail = item ;
         console.log("SET_PRODUCT_DETAIL=",item);
     },
+    REMOVE_ITEM_CART(state,index){
+        let currentproducts = state.shoppingcart;
+        currentproducts.splice(index,1);
+        state.shoppingcart = currentproducts
+        console.log("state.shoppingcart =",state.shoppingcart);
+        console.log("index index =",index);
+    },
+    REMOVE_PRODUCT_NUMBER(){
+        state.totalnumberproducts -=1
+    },
+    SHOW_MODAL(){
+        state.showModal = !state.showModal;
+    }
 
 }
 const actions = {
@@ -120,6 +139,13 @@ const actions = {
      addcurrentdetail({commit},item){
         console.log("addcurrentdetail");
          commit("SET_PRODUCT_DETAIL",item);
+    },
+    removeitemcart({commit},index){
+        commit("REMOVE_ITEM_CART",index);
+        commit("REMOVE_PRODUCT_NUMBER");
+    },
+    showOrHiddenModal({commit}){
+        commit("SHOW_MODAL");
     }
 
 }
