@@ -20,7 +20,7 @@
         <div class="price_content">
           <h3>${{item.price}} </h3>
           <span>
-            <b-button :cartIcon="true" href="#" variant="outline-success"  class="addcart" @click="addcart(item)"> 
+            <b-button :cartIcon="true" href="#" variant="outline-success"  class="addcart"  @click="addcart(item)"> 
               Add Cart
             </b-button>
           </span>
@@ -30,11 +30,15 @@
           </b-card-text>
 
         
-            <router-link to="/productdetail"   >
-                          <h2 @click="addcurrentproductdetail(item)">  More information </h2>
-            </router-link>
-
+           
+              <button type="button" class="btn_moreinfo" @click.prevent="addcurrentproductdetail(item)">
+                
+               
+                More information
      
+                </button>
+                  
+
         </b-card>
         </b-col>
       </b-row>
@@ -65,8 +69,11 @@ export default {
       console.log("addshoppingcart");
       console.log(item)
     },
-    addcurrentproductdetail(item){
-      this.$store.dispatch("addcurrentdetail",item)
+    async addcurrentproductdetail(item){
+      await this.$store.dispatch("addcurrentdetail",item)
+      await this.$router.push("/productdetail");
+
+ 
       console.log("addcurrentproductdetail item=",item);
     }
 
@@ -74,8 +81,22 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.btn_moreinfo{
+  padding: 10px 15px;
+  background-color: rgb(78, 95, 240);
+  border-radius: 10px;
+  box-shadow: rgb(0, 0, 15px);
+    color: white;
+}
+.btn_moreinfo:hover{
+  cursor: pointer;
 
+  font-weight: 200;
+   box-shadow: 3px 3px rgb(10, 10, 0.4);
+}
+</style>
+<style>
 .flex-container{
   display:flex;
   justify-content: space-around;

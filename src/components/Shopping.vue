@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-row align-v="center" offset-md="2">
+    <b-row class="cardggroup"  >
 
         <Shoppingitem
         v-for="item in GET_DISPLAY"
@@ -8,8 +8,6 @@
         :item="item"
       >
       </Shoppingitem>
-
-  
     </b-row>
     <b-pagination-nav
       align="center"
@@ -57,6 +55,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.cardggroup{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 </style>

@@ -12,9 +12,9 @@
           <b-navbar-nav>
         <b-navbar-brand href="#" to="/chatroom" class="nav_brand">Chatroom</b-navbar-brand>
            </b-navbar-nav>
-              <b-navbar-nav>
+              <!-- <b-navbar-nav>
         <b-navbar-brand href="#" to="/logout" class="nav_brand">Logout</b-navbar-brand>
-           </b-navbar-nav>
+           </b-navbar-nav> -->
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form @submit.prevent="search">
@@ -42,11 +42,11 @@
             <b-navbar-brand href="#" to="/register" class="nav_brand">Register</b-navbar-brand>
             <b-navbar-brand v-if="userstatus">Username</b-navbar-brand>
             <b-navbar-brand v-else>Nousername</b-navbar-brand>
-            <b-nav-form @submit.prevent="logout">
+            <!-- <b-nav-form @submit.prevent="logout">
               <b-button size="sm" class="my-2 my-sm-0" type="submit"
                 >Logout</b-button
               >
-            </b-nav-form>
+            </b-nav-form> -->
                 <span>
             <b-button href="#" variant="primary"  to="/shoppingcart" > 
               Shopping Cart

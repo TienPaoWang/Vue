@@ -91,5 +91,12 @@ export default {
 .product-name {
   box-sizing: border-box;
 }
+ .fade-enter-active, .fade-leave-active {
+    transition: all .5s;
+  }
 
+  .fade-enter, .fade-leave-to {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
 </style>
