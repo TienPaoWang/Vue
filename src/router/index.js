@@ -4,6 +4,7 @@ import Login from '../components/Login'
 import Chatroom from '../components/Chatroom'
 import Logout from '../components/Logout'
 import Register from '../components/Register.vue'
+
 import Shopping from '../components/Shopping.vue'
 import ShoppingCart from '../components/ShoppingCart.vue'
 import Home from '../views/Home.vue'
@@ -12,7 +13,15 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 Vue.use(VueRouter)
 
+
+import test from '../components/test.vue'
 const routes = [
+  {
+    path: '/test',
+    name: 'test',
+    component: test
+  },
+
   {
     path: '/',
     name: 'Home',
@@ -44,16 +53,16 @@ const routes = [
     component: Chatroom
   },
   {
-      path:'/productdetail',
-      name:"ProductDetail",
-      component:ProductDetail
+    path: '/productdetail',
+    name: "ProductDetail",
+    component: ProductDetail
   },
   {
-    path:'/shoppingcart',
-    name:"ShoppingCart",
-    component:ShoppingCart,
+    path: '/shoppingcart',
+    name: "ShoppingCart",
+    component: ShoppingCart,
     meta: { requiresAuth: true }
-},
+  },
   {
     path: '/about',
     name: 'About',

@@ -1,21 +1,31 @@
 <template>
   <div id="app">
     <div id="nav">
-          <Header />
+      <Header />
     </div>
-    <router-view ></router-view>
+
+      <!--  Spinner -->
+    <div class="text-center" v-if="GET_SPINNER == true">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+    <router-view v-else></router-view>
   </div>
 </template>
 <script>
-import Header from './components/Header.vue'
+import Header from "./components/Header.vue";
+import {mapGetters} from 'vuex'
 export default {
-   components: {
+  components: {
     Header
+  },
+  computed:{
+    ...mapGetters(["GET_SPINNER"]),
   }
-}
+
+};
 </script>
-
-
 
 <style lang="scss">
 #app {

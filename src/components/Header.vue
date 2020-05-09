@@ -1,18 +1,22 @@
 <template>
   <div>
-    <b-navbar  toggleable="lg" type="dark" variant="dark" class="navbar"> 
+    <b-navbar toggleable="lg" type="dark" variant="dark" class="navbar">
       <b-navbar-brand href="#" to="/" class="nav_brand">Home</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-navbar-brand href="#" to="/shopping" class="nav_brand">Product</b-navbar-brand>
+          <b-navbar-brand href="#" to="/shopping" class="nav_brand"
+            >Product</b-navbar-brand
+          >
         </b-navbar-nav>
-          <b-navbar-nav>
-        <b-navbar-brand href="#" to="/chatroom" class="nav_brand">Chatroom</b-navbar-brand>
-           </b-navbar-nav>
-              <!-- <b-navbar-nav>
+        <b-navbar-nav>
+          <b-navbar-brand href="#" to="/chatroom" class="nav_brand"
+            >Chatroom</b-navbar-brand
+          >
+        </b-navbar-nav>
+        <!-- <b-navbar-nav>
         <b-navbar-brand href="#" to="/logout" class="nav_brand">Logout</b-navbar-brand>
            </b-navbar-nav> -->
         <!-- Right aligned nav items -->
@@ -37,55 +41,75 @@
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
            -->
-          <b-navbar-nav right>
-            <b-navbar-brand href="#" to="/login" class="nav_brand">Login</b-navbar-brand>
-            <b-navbar-brand href="#" to="/register" class="nav_brand">Register</b-navbar-brand>
-            <b-navbar-brand v-if="userstatus">Username</b-navbar-brand>
-            <b-navbar-brand v-else>Nousername</b-navbar-brand>
-            <!-- <b-nav-form @submit.prevent="logout">
-              <b-button size="sm" class="my-2 my-sm-0" type="submit"
-                >Logout</b-button
+          <div class="authentication">
+            <b-navbar-nav right>
+              <b-navbar-brand
+                href="#"
+                to="/login"
+                class="nav_brand"
+                v-if="userstatus == false"
+                >Login</b-navbar-brand
               >
-            </b-nav-form> -->
-                <span>
-            <b-button href="#" variant="primary"  to="/shoppingcart" > 
-              Shopping Cart
-              <span class="btn-circle"> {{GET_TOTAL_NUMBER_PRODUCTS}}</span>
-            </b-button>
-          </span>
-          </b-navbar-nav>
+              <b-navbar-brand
+                href="#"
+                class="nav_brand"
+                v-else
+                @click.prevent="logout"
+              >
+                Logout
+              </b-navbar-brand>
+
+              <b-navbar-brand href="#" to="/register" class="nav_brand"
+                >Register</b-navbar-brand
+              >
+              <b-navbar-brand v-if="userstatus">Username</b-navbar-brand>
+              <b-navbar-brand v-else>Nousername</b-navbar-brand>
+
+              <span>
+                <b-button href="#" variant="primary" to="/shoppingcart">
+                  Shopping Cart
+                  <span class="btn-circle">
+                    {{ GET_TOTAL_NUMBER_PRODUCTS }}</span
+                  >
+                </b-button>
+              </span>
+            </b-navbar-nav>
+          </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+  
+
+
   </div>
 </template>
 
 <script>
-import {mapGetters} from "vuex"
+import { mapGetters, mapActions } from "vuex";
 import Login from "./Login";
 import Register from "./Register.vue";
 import Logout from "./Logout.vue";
 import Shopping from "./Shopping.vue";
 import Chatroom from "./Chatroom.vue";
 import Home from "../views/Home.vue";
-// import * as firebase from "firebase/app";
-// import "firebase/auth";
-import firebase from 'firebase'
+import * as firebase from "firebase/app";
+import "firebase/auth";
+// import firebase from "firebase";
 export default {
   data() {
     return {
       searchtext: "",
-      userstatus: "",
-    
+      userstatus: ""
     };
   },
   mounted() {
     this.CheckUserStatus();
   },
-  computed:{
-    ...mapGetters(['GET_TOTAL_NUMBER_PRODUCTS']),
+  computed: {
+    ...mapGetters(["GET_TOTAL_NUMBER_PRODUCTS"])
   },
   methods: {
+    ...mapActions(["setspinner"]),
     search() {
       console.log("this.searchtext=", this.searchtext);
       this.$store.dispatch("reaschitem", this.searchtext);
@@ -103,34 +127,36 @@ export default {
       const isAuthenticated = firebase.auth().currentUser;
       console.log("isAuthenticated", isAuthenticated);
     },
-    logout() {
-      console.log("Logout");
-      firebase.auth().signOut();
+    async logout() {
+      this.$store.dispatch("setspinner",true);
+      await firebase.auth().signOut();
       this.userstatus = false;
+       this.$store.dispatch("setspinner",false);
     }
   }
 };
 </script>
 <style >
-
-
-  .btn-circle {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #fff;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .nav_brand{
-    color:white !important;
-  }
-  #nav a.router-link-exact-active{
-    color:#c6ec1e !important;
-  }
+.btn-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav_brand {
+  color: white !important;
+}
+#nav a.router-link-exact-active {
+  color: #c6ec1e !important;
+}
+.authentication {
+  margin-left: 10px;
+}
 </style>

@@ -27,6 +27,7 @@
 // import firebase from 'firebase'
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import {mapActions} from 'vuex'
 export default {
   data() {
     return {
@@ -36,55 +37,23 @@ export default {
     };
   },
   mounted() {
-    console.log("mounted checking");
-    // this.checkingstatus();
   },
   methods: {
-    // async login() {
-    //   console.log(this.email);
-    //   console.log(this.password);
-    //   await firebase
-    //     .auth()
-    //     .signInWithEmailAndPassword(this.email, this.password)
-    //     .then(data => {
-    //       console.log(data);
-    //      this.$router.replace({ name: "Home" });
-    //     })
-    //     .catch(error => {
-    //       this.error = error;
-    //     });
-    // },
-    //  login() {
-    //   console.log("this.email", this.email);
-    //   console.log("this.password", this.password);
-    //    firebase
-    //     .auth()
-    //     .signInWithEmailAndPassword(this.email, this.password)
-    //     .then(data => {
-    //       console.log(data);
-    //       const isAuthenticated = firebase.auth().currentUser;
-    //       alert("isAuthenticated", isAuthenticated);
-    //       this.$router.replace({ path: "shopping" });
-    //     })
-    //     .catch(error => {
-    //       this.error = error;
-    //     });
-    //   console.log("error");
+       ...mapActions(["setspinner"]),
+    async login() {
 
-    login() {
-      firebase
+      this.setspinner(true);
+      await firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
         .then(token => {
-          console.log("tokenuser=", token.user);
-          console.log("this.email=", this.email);
-          console.log("this.password=", this.password);
           this.$router.push("/shopping");
         })
         .catch(error => {
           console.log("error=", error);
           this.error = error;
         });
+        this.setspinner(false);
     }
   },
 

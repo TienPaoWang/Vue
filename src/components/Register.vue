@@ -1,6 +1,6 @@
 <template>
   <div>
-    Login
+    Register
     <form action="">
       <div class="email">
         <input type="email" v-model="email" placeholder="Register" />
@@ -16,7 +16,7 @@
     </form>
     <div class="error" v-if="error">{{ error.message }}</div>
 
-    >
+    
   </div>
 </template>
 
@@ -37,18 +37,6 @@ export default {
     };
   },
   methods: {
-    // register() {
-    //   firebase
-    //     .auth()
-    //     .createUserWithEmailAndPassword(this.email, this.password)
-    //     .then(data => {
-    //       console.log("data=", data);
-    //       this.$router.replace({ name: "Shopping" });
-    //     })
-    //     .catch(error => {
-    //       this.error = error;
-    //     });
-    // },
     register() {
       firebase
         .auth()
@@ -63,5 +51,20 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.error {
+  color: red;
+  font-size: 18px;
+}
+input {
+  width: 400px;
+  padding: 20px;
+  margin: 20px;
+  font-size: 21px;
+}
+button {
+  width: 400px;
+  height: 75px;
+  font-size: 100%;
+}
 </style>

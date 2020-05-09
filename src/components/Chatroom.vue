@@ -112,6 +112,7 @@
 import * as firebase from "firebase";
 import "firebase/firestore";
 import { dbdatabase } from "../main";
+import { mapActions } from 'vuex';
 
 // msgRef = firebase中的資料表/messages/，若沒有的會自動建立
 
@@ -136,6 +137,7 @@ export default {
   },
   // 這個頁面的functions
   methods: {
+     ...mapActions(["setspinner"]),
     addusername() {
       let vm = this;
       vm.username = vm.tempusername;
@@ -193,7 +195,8 @@ export default {
     }
   },
   // mounted是vue的生命週期之一，代表模板已編譯完成，已經取值準備渲染元件了
-  mounted() {
+    mounted() {
+    
     const ref = dbdatabase.database().ref("/chatroom/");
     this.msgRef = ref;
     const vm = this;
@@ -222,17 +225,18 @@ export default {
       const value = snapshot.val();
       console.log("snapshot value", value);
     });
+ 
+     
   },
   updated() {
+     console.log("updated");
     // const roombody = document.getElementById("#js-roomBody");
     // roombody.scrollTop = roombody.scrollHeight;
     const roomBody = document.querySelector("#js-roomBody");
-    console.log("roomBody.scrollTop", roomBody.scrollTop);
     roomBody.scrollTop = roomBody.scrollHeight;
-    console.log("roomBody.scrollHeight", roomBody.scrollHeight);
-    console.log("roomBody.clientHeight", roomBody.clientHeight);
-    console.log("roomBody.clientTop", roomBody.clientTop);
-  }
+   
+  },
+  
 };
 </script>
 

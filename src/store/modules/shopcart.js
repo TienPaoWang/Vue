@@ -92,6 +92,7 @@ const actions = {
       
     },
     async fetchtotaldata({commit,dispatch}){
+      
         const value = await dispatch("fetchdata");
         dispatch("display",{val:value,currentpage: 1,perpage:state.perpage});
         commit("SET_TOTAL",value);
