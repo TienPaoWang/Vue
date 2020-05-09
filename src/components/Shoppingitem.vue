@@ -11,8 +11,8 @@
           :img-src="item.picture"
           img-alt="Image"
           img-top
-          img-height="300px"
-          img-width="300px"
+          img-height="250px"
+          img-width="100%"
           tag="article"
           style="max-width: 20rem; "
           class="mb-2"

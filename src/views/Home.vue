@@ -15,8 +15,12 @@
       <section id="subhero" class="wrap">
         <div class="row submain ">
           <div class="wrap">
-            <div class="col-md-12 padding_15"><h2 class="font-weight-bold">iPhone 11</h2></div>
-            <div class="col-md-12 padding_15"><h1 class="font-weight-bold">樣樣行，剛剛好。</h1></div>
+            <div class="col-md-12 padding_15">
+              <h2 class="font-weight-bold">iPhone 11</h2>
+            </div>
+            <div class="col-md-12 padding_15">
+              <h1 class="font-weight-bold">樣樣行，剛剛好。</h1>
+            </div>
             <div class="col-md-12 padding_15">
               <a href="#"> <h3>折抵換購，NT$19,400 起。</h3></a>
             </div>
@@ -34,7 +38,9 @@
       <section id="subhero2" class="wrap">
         <div class="row submain ">
           <div class="wrap">
-            <div class="col-md-12 padding_15"><h2 class="font-weight-bold">iPhone 11 Pro</h2></div>
+            <div class="col-md-12 padding_15">
+              <h2 class="font-weight-bold">iPhone 11 Pro</h2>
+            </div>
             <div class="col-md-12 padding_15">
               <h1 class="font-weight-bold">相機、顯示器、效能，一切 Pro</h1>
             </div>
@@ -58,7 +64,7 @@
     <div
       class="productgroup justify-content-center align-items-center padding_y_30"
     >
-      <div>
+      <div >
         <div class="row justify-content-center align-items-center">
           <!-- Product1 -->
           <div class="col-lg-3 col-sm-5 col-md-5 offset-md-1 offset-sm-1">
@@ -189,12 +195,10 @@
           Copyright © 2020 Apple Inc.
         </div>
         <div class="row">
-          <div class="box" a="#">
-            隱私權政策
-          </div>
-          <div class="box" a="#">使用條款</div>
-          <div class="box" a="#">銷售及退款</div>
-          <div class="box" a="#">法律聲明</div>
+          <div class="box padding_x_15" a="#"> 隱私權政策</div>
+          <div class="box padding_x_15" a="#">使用條款</div>
+          <div class="box padding_x_15" a="#">銷售及退款</div>
+          <div class="box padding_x_15" a="#">法律聲明</div>
         </div>
       </div>
     </div>
@@ -271,16 +275,17 @@ img {
 }
 #subhero {
   background-color: #ececec !important;
-  padding: 10px 0;
+  padding: 0;
   height: 100%;
   justify-content: center;
 }
 #subhero2 {
   background-color: #000000;
-  padding: 10px 0;
+  padding: 0 0;
   color: white;
   height: 100%;
   justify-content: center;
+  vertical-align: baseline;
 }
 .content-wrapper img {
   width: 150px;
@@ -345,6 +350,7 @@ img {
   align-content: center;
   text-align: center;
 }
+
 @media all and (min-width: 968px) {
   #subherogroup {
     display: flex !important;

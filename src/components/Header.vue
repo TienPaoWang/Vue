@@ -16,10 +16,6 @@
             >Chatroom</b-navbar-brand
           >
         </b-navbar-nav>
-        <!-- <b-navbar-nav>
-        <b-navbar-brand href="#" to="/logout" class="nav_brand">Logout</b-navbar-brand>
-           </b-navbar-nav> -->
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form @submit.prevent="search">
             <b-form-input
@@ -32,15 +28,6 @@
               >Search</b-button
             >
           </b-nav-form>
-
-          <!-- <b-nav-item-dropdown right>
-          <template v-slot:button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Login</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-           -->
           <div class="authentication">
             <b-navbar-nav right>
               <b-navbar-brand
@@ -78,7 +65,8 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-  
+    <!-- -->
+   
 
 
   </div>
@@ -128,10 +116,10 @@ export default {
       console.log("isAuthenticated", isAuthenticated);
     },
     async logout() {
-      this.$store.dispatch("setspinner",true);
+      this.$store.dispatch("setspinner", true);
       await firebase.auth().signOut();
       this.userstatus = false;
-       this.$store.dispatch("setspinner",false);
+      this.$store.dispatch("setspinner", false);
     }
   }
 };
