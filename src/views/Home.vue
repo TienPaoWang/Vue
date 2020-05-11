@@ -6,7 +6,63 @@
         name="viewport"
         content="width=device-width, initial-scale=1 ,shrink-to-fit=no"
       />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
     </head>
+
+    <!--Slide carousal -->
+    <section >
+      <div>
+        <div>
+          <b-carousel
+            no-animation
+            id="carousel-1"
+            v-model="slide"
+            :interval="4000"
+            controls
+            indicators
+            img-width="1024"
+            img-height="480"
+          >
+            <!-- Text slides with image -->
+            <b-carousel-slide
+              caption="New Product rolling out"
+              text=""
+              img-src="../assets/iphone-se-gallery2.png"
+              img-width="100vw"
+              img-height="480px"
+            ></b-carousel-slide>
+            <!-- Slides with custom text -->
+            <b-carousel-slide
+              img-src="../assets/iphone-se-gallery3.png"
+              img-width="1024"
+              img-height="480"
+            >
+            </b-carousel-slide>
+            <!-- Slides with image only -->
+            <b-carousel-slide
+              img-src="../assets/iphone-se-gallery4.png"
+              img-width="1024"
+              img-height="480"
+            ></b-carousel-slide>
+            <b-carousel-slide
+              img-src="../assets/iphone-se-gallery5.png"
+              img-width="1024"
+              img-height="480"
+            ></b-carousel-slide>
+            <b-carousel-slide
+              img-src="../assets/iphone-se-gallery6.png"
+              img-width="1024"
+              img-height="480"
+            ></b-carousel-slide>
+          </b-carousel>
+        </div>
+      </div>
+    </section>
 
     <!-- Subhero product -->
 
@@ -25,7 +81,7 @@
               <a href="#"> <h3>折抵換購，NT$19,400 起。</h3></a>
             </div>
             <div class="col-md-12 padding_15">
-              <button type="button" class="btn btn-primary">購買</button>
+              <button type="button" class="btn btn-primary" @click.prevent="redirt_shopping">購買</button>
             </div>
             <img
               src="../assets/hero_iphone_11__bsnxu2gpf98i_medium_2x.png"
@@ -48,7 +104,7 @@
               <h4>折抵換購，NT$28,800 起。</h4>
             </div>
             <div class="col-md-12 padding_15">
-              <button type="button" class="btn btn-primary">購買</button>
+              <button type="button" class="btn btn-primary" @click.prevent="redirt_shopping">購買</button>
             </div>
 
             <img
@@ -64,7 +120,7 @@
     <div
       class="productgroup justify-content-center align-items-center padding_y_30"
     >
-      <div >
+      <div>
         <div class="row justify-content-center align-items-center">
           <!-- Product1 -->
           <div class="col-lg-3 col-sm-5 col-md-5 offset-md-1 offset-sm-1">
@@ -185,8 +241,9 @@
       </div>
     </div>
 
-    <!-- About-->
-    <section></section>
+    <!-- - ---------------------------------------------------------------------- --->
+
+    <!-- -->
 
     <!-- Footer-->
     <div class="footer">
@@ -195,7 +252,7 @@
           Copyright © 2020 Apple Inc.
         </div>
         <div class="row">
-          <div class="box padding_x_15" a="#"> 隱私權政策</div>
+          <div class="box padding_x_15" a="#">隱私權政策</div>
           <div class="box padding_x_15" a="#">使用條款</div>
           <div class="box padding_x_15" a="#">銷售及退款</div>
           <div class="box padding_x_15" a="#">法律聲明</div>
@@ -216,7 +273,9 @@ export default {
   components: {},
   data() {
     return {
-      userstatus: false
+      userstatus: false,
+      slide: 0,
+      sliding: null
     };
   },
   mounted() {
@@ -237,6 +296,10 @@ export default {
       console.log("userstatus", this.userstatus);
       const isAuthenticated = firebase.auth().currentUser;
       console.log("isAuthenticated222222222=", isAuthenticated);
+    },
+    redirt_shopping(){
+      console.log("redirt_shopping");
+      this.$router.push("/shopping");
     }
   }
 };
@@ -353,10 +416,10 @@ img {
 
 @media all and (min-width: 968px) {
   #subherogroup {
-    display: flex !important;
+    /* display: flex !important;
     flex-direction: row !important;
     justify-content: center !important;
-    align-self: center;
+    align-self: center; */
   }
 }
 </style>
