@@ -1,11 +1,11 @@
 <template>
-  <div class="main">
+  <div class="main pt-5">
     <div class="more_info">
       <div class="img">
         <img :src="currentProduct.picture" />
       </div>
-      <div class="product">
-        <div class="productname">${{ currentProduct.name }}</div>
+      <div class="product ">
+        <div class="productname pt-5">${{ currentProduct.name }}</div>
         <div> <h3> ${{ currentProduct.price }}  </h3></div>
           <div class="shopping_button"> <b-button href="#" pill variant="success" size="lg" class="addcart btn-large btn-block" @click="addcart(currentProduct)"> 
               Buy Now
