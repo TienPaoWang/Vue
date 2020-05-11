@@ -31,13 +31,16 @@
                         <div class="timestamp">
                           {{ item.timeStamp }}
                         </div>
-                        <div class="text">
+                        <div class="box message_text">
                           {{ item.message }}
                         </div>
 
                         <div>
                           <span>
-                            <button @click="deletemessage(item.id)">
+                            <button
+                              @click="deletemessage(item.id)"
+                              class="removebtn btn btn-outline-secondary"
+                            >
                               remove
                             </button>
                           </span>
@@ -47,16 +50,25 @@
                   </div>
                 </div>
               </div>
-              <span> Message </span>
-              <b-button variant="primary" class="button" @click="addmessage()"
-                >Enter</b-button
-              >
-
-              <b-form-input
-                v-model="tempmessage"
-                @keyup.enter="addmessage($event)"
-                placeholder="Enter your message"
-              ></b-form-input>
+              <div class="message_bottom">
+                <div class="input-group">
+                  <textarea
+                    v-model="tempmessage"
+                    class="form-control"
+                    @keyup.enter="addmessage($event)"
+                    placeholder="Enter your message"
+                    aria-label="With textarea"
+                  ></textarea>
+                </div>
+                <div class="my-2 flex-container justify-content-end ">
+                  <b-button
+                    variant="primary"
+                    class="px-3   pull-right"
+                    @click="addmessage()"
+                    >Enter</b-button
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -112,7 +124,7 @@
 import * as firebase from "firebase";
 import "firebase/firestore";
 import { dbdatabase } from "../main";
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 // msgRef = firebase中的資料表/messages/，若沒有的會自動建立
 
@@ -137,7 +149,7 @@ export default {
   },
   // 這個頁面的functions
   methods: {
-     ...mapActions(["setspinner"]),
+    ...mapActions(["setspinner"]),
     addusername() {
       let vm = this;
       vm.username = vm.tempusername;
@@ -195,8 +207,7 @@ export default {
     }
   },
   // mounted是vue的生命週期之一，代表模板已編譯完成，已經取值準備渲染元件了
-    mounted() {
-    
+  mounted() {
     const ref = dbdatabase.database().ref("/chatroom/");
     this.msgRef = ref;
     const vm = this;
@@ -225,18 +236,14 @@ export default {
       const value = snapshot.val();
       console.log("snapshot value", value);
     });
- 
-     
   },
   updated() {
-     console.log("updated");
+    console.log("updated");
     // const roombody = document.getElementById("#js-roomBody");
     // roombody.scrollTop = roombody.scrollHeight;
     const roomBody = document.querySelector("#js-roomBody");
     roomBody.scrollTop = roomBody.scrollHeight;
-   
-  },
-  
+  }
 };
 </script>
 
@@ -268,7 +275,6 @@ button {
 }
 .message_context {
   padding: 5px 0;
-  border-style: solid;
 }
 /* Head */
 .roomHead {
@@ -301,7 +307,7 @@ button {
 }
 
 .roomBody {
-  padding: 10px 0px;
+  padding: 10px 10px;
   margin: 10px 0px;
   background-color: #fff;
   height: 60vh;
@@ -319,8 +325,15 @@ button {
   text-align: center;
   display: inline-block;
 }
+.timestamp {
+  font-size: 0.5rem;
+}
+.message_text {
+  background-color: #b2ed8b;
+  display: inline-block !important;
+  border-radius: 10px;
+}
 .button {
-  font-size: 14px;
   color: #ffffff;
   background-color: #2b364b;
   padding: 10px 20px;
@@ -328,12 +341,22 @@ button {
   cursor: pointer;
   margin: 10px 5px;
 }
+.removebtn {
+  margin: 0;
+  font-size: 8px;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 10px;
+}
 .chatroom {
   display: flex;
   width: 800px;
 }
 .message_content {
   width: 400px;
+  margin: 10px;
+  border-width:3px;  
+  border-style:ridge;
 }
 
 /* media */
@@ -344,7 +367,7 @@ button {
     flex-direction: column;
     width: 100%;
   }
-  .message_content{
+  .message_content {
     margin: 0 3 vw;
     width: 95vw;
   }
