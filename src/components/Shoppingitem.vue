@@ -1,6 +1,6 @@
 <template>
  
-    <div >
+    <div class="main ">
       <div class="main-card">
       <b-row align-content="center">
         <b-col offset-md="2">
@@ -28,17 +28,10 @@
           <b-card-text class="ellipsis">
            {{item.content}}
           </b-card-text>
-
-        
-           
               <button type="button" class="btn_moreinfo" @click.prevent="addcurrentproductdetail(item)">
-                
-               
                 More information
-     
                 </button>
-                  
-
+                
         </b-card>
         </b-col>
       </b-row>
@@ -82,6 +75,7 @@ export default {
 </script>
 
 <style scoped>
+
 .btn_moreinfo{
   padding: 10px 15px;
   background-color: rgb(78, 95, 240);

@@ -6,15 +6,34 @@
       </div>
       <div class="product ">
         <div class="productname pt-5">${{ currentProduct.name }}</div>
-        <div> <h3> ${{ currentProduct.price }}  </h3></div>
-          <div class="shopping_button"> <b-button href="#" pill variant="success" size="lg" class="addcart btn-large btn-block" @click="addcart(currentProduct)"> 
-              Buy Now
-            </b-button></div>
-     
-        <div class="shopping_button"> <b-button href="#"   pill variant="primary" size="lg" class="addcart btn-large btn-block" @click="openModal()"> 
-              More Information
-            </b-button></div>
-            
+        <div>
+          <h3>${{ currentProduct.price }}</h3>
+        </div>
+        <div class="shopping_button">
+          <b-button
+            href="#"
+            pill
+            variant="success"
+            size="lg"
+            class="addcart btn-large px-4 py-2"
+            @click="addcart(currentProduct)"
+          >
+            Buy Now
+          </b-button>
+        </div>
+
+        <div class="shopping_button">
+          <b-button
+            href="#"
+            pill
+            variant="primary"
+            size="lg"
+            class="addcart btn-large px-4 py-2"
+            @click="openModal()"
+          >
+            More Information
+          </b-button>
+        </div>
       </div>
     </div>
     <modal :content="currentProduct.content"></modal>
@@ -22,29 +41,27 @@
 </template>
 
 <script>
-import { mapGetters,mapActions } from "vuex";
-import modal from './Modal';
+import { mapGetters, mapActions } from "vuex";
+import modal from "./Modal";
 export default {
-  components:{
+  components: {
     modal
   },
   computed: {
     ...mapGetters({
       currentProduct: "GET_CURRENT_DETAIL"
     }),
-    ...mapActions(['addshoppingcart','showOrHiddenModal'])
-     },
+    ...mapActions(["addshoppingcart", "showOrHiddenModal"])
+  },
   mounted() {
     const get = this.$store.getters.GET_CURRENT_DETAIL;
   },
-  methods:{
-    addcart(currentProduct){
-       console.log("addcart currentProduct=",currentProduct);
-      this.$store.dispatch("addshoppingcart",currentProduct);
+  methods: {
+    addcart(currentProduct) {
+      this.$store.dispatch("addshoppingcart", currentProduct);
     },
-    openModal(currentProduct){
-      console.log("openModal");
-        this.$store.dispatch("showOrHiddenModal");
+    openModal(currentProduct) {
+      this.$store.dispatch("showOrHiddenModal");
     }
   }
 };
@@ -58,9 +75,9 @@ export default {
 }
 
 .more_info {
-    margin: auto;
-    width: 800px;
-    height: 400px;
+  margin: auto;
+  width: 100%;
+  height: 400px;
   display: flex;
   justify-content: center;
   /* border-style: solid;
@@ -70,17 +87,28 @@ img {
   max-width: 400px;
   max-height: 380px;
 }
-.product{
-    width: 400px;
+.product {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-content: center;
+}
+.productname {
+  font-size: 48px;
+}
+.shopping_button {
+  padding: 10px 20px;
+}
+@media all and (max-width: 768px) {
+  .more_info {
+    margin: auto;
+    width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    /* justify-content: center; */
-    align-content: center;
-}
-.productname{
-    font-size: 48px;
-}
-.shopping_button{
-    padding:  10px 20px;
+    /* border-style: solid;
+  border-color: chartreuse; */
+  }
 }
 </style>

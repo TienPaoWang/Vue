@@ -19,12 +19,19 @@
       <h1>Total price: ${{ totalprice() }} </h1>
     </div>
     <div v-else>No product</div>
+    <button type="button" class="btn btn-primary showmode" @click="showmode()">123456789</button>
+
+    <shopmodal ></shopmodal>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import shopmodal from "./ShoppingModal.vue";
 export default {
+  components:{
+    shopmodal
+  },
   data() {
     return {
       totalitemprice: 0,
@@ -40,7 +47,7 @@ export default {
   },
 
   methods: {
-      ...mapActions(["removeitemcart"]),
+      ...mapActions(["removeitemcart","showshoppingmodal"]),
     totalprice() {
          console.log("totalprice");
       this.totalproducts = this.$store.getters.GET_PRODUCTS;
@@ -53,6 +60,10 @@ export default {
     remove(index){
         console.log("removeitem item=",index);
         this.$store.dispatch("removeitemcart",index);
+    },
+    showmode(){
+       console.log("showmode=");
+       this.showshoppingmodal();
     }
   }
 };

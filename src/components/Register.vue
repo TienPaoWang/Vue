@@ -79,6 +79,9 @@ button {
   width: 100%;
   height: 50px;
 }
+.btn-primary{
+  font-size: 2rem;
+}
 @media all and (min-width: 768px) {
     /* .main{
       background-color: #f00;

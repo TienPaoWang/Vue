@@ -107,7 +107,9 @@ button {
   width: 100%;
   height: 50px;
 }
-
+.btn-primary{
+  font-size: 2rem;
+}
 text-align:left;
 .main .container{
     border-width:3px;  

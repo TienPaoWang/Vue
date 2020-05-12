@@ -12,7 +12,8 @@ const state = {
     shoppingcart:[],
     productcurrentdetail:{},
     totalnumberproducts:0,
-    showModal:false
+    showModal:false,
+    showShopModal:false
 }
 const getters = {
     GET_TOTAL_ITEM(state){
@@ -39,6 +40,10 @@ const getters = {
     GET_SHOW_MODEL(state){
         console.log("state.showModal=",state.showModal);
         return state.showModal;
+    },
+    GET_SHOW_SHOP_MODEL(state){
+        console.log("state.showShopModal=",state.showShopModal);
+        return state.showShopModal;
     }
 
 }
@@ -70,11 +75,15 @@ const mutations = {
         console.log("state.shoppingcart =",state.shoppingcart);
         console.log("index index =",index);
     },
-    REMOVE_PRODUCT_NUMBER(){
+    REMOVE_PRODUCT_NUMBER(state){
         state.totalnumberproducts -=1
     },
-    SHOW_MODAL(){
+    SHOW_MODAL(state){
         state.showModal = !state.showModal;
+    },
+    SHOW_SHOP_MODAL(state){
+        state.showShopModal = !state.showShopModal;
+
     }
 
 }
@@ -147,6 +156,9 @@ const actions = {
     },
     showOrHiddenModal({commit}){
         commit("SHOW_MODAL");
+    },
+    showshoppingmodal({commit}){
+        commit("SHOW_SHOP_MODAL");
     }
 
 }
