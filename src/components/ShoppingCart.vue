@@ -11,17 +11,34 @@
           <h1 class="product-name">{{ item.name }}</h1>
           <span class="product-price">${{ item.price }}</span>
           <button @click="remove(index)">X</button>
-           
         </li>
       </transition-group>
     </ul>
-    <div class="total_price" v-if="GET_TOTAL_NUMBER_PRODUCTS > 0">
-      <h1>Total price: ${{ totalprice() }} </h1>
+        <!-- Coupon and Price block -->
+    <div class="cart-page-footer">
+      <!-- Coupon option -->
+      <div class="d-flex justify-content-end p-3">
+        <a href="#" @click.prevent="showmode()">
+          選擇折價券或輸入折扣碼
+        </a>
+      </div>
+      <hr class="style-one">  
+      <!-- Total Price -->
+      <div>
+        <div class="d-flex justify-content-end py-3">
+          <div class="total_price  mr-2" v-if="GET_TOTAL_NUMBER_PRODUCTS > 0">
+            <h3>Total price: ${{ totalprice() }}</h3>
+          </div>
+          <div class="mr-2" v-else> <h3>Total price: $0</h3>  </div>
+          <div>
+            <i class="fas fa-shopping-cart"></i>
+            <button tyue="button" class="btn btn-primary"> Buy it</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div v-else>No product</div>
-    <button type="button" class="btn btn-primary showmode" @click="showmode()">123456789</button>
 
-    <shopmodal ></shopmodal>
+    <shopmodal></shopmodal>
   </div>
 </template>
 
@@ -29,27 +46,26 @@
 import { mapGetters, mapActions } from "vuex";
 import shopmodal from "./ShoppingModal.vue";
 export default {
-  components:{
+  components: {
     shopmodal
   },
   data() {
     return {
       totalitemprice: 0,
-      totalproducts: [],
+      totalproducts: []
     };
   },
-    mounted(){
-        this.totalprice();
+  mounted() {
+    this.totalprice();
   },
   computed: {
-    ...mapGetters(["GET_PRODUCTS","GET_TOTAL_NUMBER_PRODUCTS"])
-    
+    ...mapGetters(["GET_PRODUCTS", "GET_TOTAL_NUMBER_PRODUCTS"])
   },
 
   methods: {
-      ...mapActions(["removeitemcart","showshoppingmodal"]),
+    ...mapActions(["removeitemcart", "showshoppingmodal"]),
     totalprice() {
-         console.log("totalprice");
+      console.log("totalprice");
       this.totalproducts = this.$store.getters.GET_PRODUCTS;
       this.totalnumber = this.totalproducts.length;
       this.totalitemprice = this.totalproducts.reduce((accumulator, item) => {
@@ -57,13 +73,13 @@ export default {
       }, 0);
       return this.totalitemprice;
     },
-    remove(index){
-        console.log("removeitem item=",index);
-        this.$store.dispatch("removeitemcart",index);
+    remove(index) {
+      console.log("removeitem item=", index);
+      this.$store.dispatch("removeitemcart", index);
     },
-    showmode(){
-       console.log("showmode=");
-       this.showshoppingmodal();
+    showmode() {
+      console.log("showmode=");
+      this.showshoppingmodal();
     }
   }
 };
@@ -96,18 +112,29 @@ export default {
   padding: 0.8em;
   margin: 1em 0;
 }
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    /* background-image: linear-gradient(to right, #ccc, #333, #ccc); */
+}
+.cart-page-footer{
+  background-color: rgb(245, 245, 245);
+}
 .product-price {
   place-self: center;
 }
 .product-name {
   box-sizing: border-box;
 }
- .fade-enter-active, .fade-leave-active {
-    transition: all .5s;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s;
+}
 
-  .fade-enter, .fade-leave-to {
-    transform: translateX(-40px);
-    opacity: 0;
-  }
+.fade-enter,
+.fade-leave-to {
+  transform: translateX(-40px);
+  opacity: 0;
+}
 </style>
