@@ -10,7 +10,8 @@
           <img :src="item.picture" alt="" class="product-image" />
           <h1 class="product-name">{{ item.name }}</h1>
           <span class="product-price">${{ item.price }}</span>
-          <button @click="remove(index)">X</button>
+          <i class="fa fa-times-circle fa-3x" @click="remove(index)"></i> 
+          <!-- <button @click="remove(index)"> <i class="fa fa-times-circle fa-3x" @click="remove(index)"></i></button> -->
         </li>
       </transition-group>
     </ul>
@@ -31,7 +32,7 @@
           </div>
           <div class="mr-2" v-else> <h3>Total price: $0</h3>  </div>
           <div>
-            <i class="fas fa-shopping-cart"></i>
+           
             <button tyue="button" class="btn btn-primary"> Buy it</button>
           </div>
         </div>
@@ -123,6 +124,7 @@ hr.style-one {
 }
 .product-price {
   place-self: center;
+  font-size: 2rem;
 }
 .product-name {
   box-sizing: border-box;
@@ -136,5 +138,12 @@ hr.style-one {
 .fade-leave-to {
   transform: translateX(-40px);
   opacity: 0;
+}
+.fa-times-circle:hover {
+  cursor: pointer;
+}
+
+.fa-times-circle:active {
+  color: white;
 }
 </style>

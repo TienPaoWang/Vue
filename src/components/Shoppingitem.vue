@@ -11,17 +11,18 @@
           :img-src="item.picture"
           img-alt="Image"
           img-top
-          img-height="250px"
+          img-height="270px"
           img-width="100%"
           tag="article"
-          style="max-width: 20rem; "
+          style="max-width: 20rem;  "
           class="mb-2"
         >
         <div class="price_content">
           <h3>${{item.price}} </h3>
           <span>
             <b-button :cartIcon="true" href="#" variant="outline-success"  class="addcart"  @click="addcart(item)"> 
-              Add Cart
+                      <i class="fa fa-shopping-cart "></i> 
+         
             </b-button>
           </span>
         </div>

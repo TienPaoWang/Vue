@@ -54,7 +54,8 @@
 
               <span>
                 <b-button href="#" variant="primary" to="/shoppingcart">
-                  Shopping Cart
+                  <i class="fa fa-shopping-cart"></i>
+                  Cart
                   <span class="btn-circle">
                     {{ GET_TOTAL_NUMBER_PRODUCTS }}</span
                   >
