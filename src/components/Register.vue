@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <head>
-            <meta
+      <meta
         name="viewport"
         content="width=device-width, initial-scale=1 ,shrink-to-fit=no"
       />
@@ -19,7 +19,9 @@
             placeholder="Please input password"
           />
         </div>
-        <button type="button" class="btn btn-primary" @click="register">Register</button>
+        <button type="button" class="btn btn-primary" @click="register">
+          Register
+        </button>
       </form>
       <div class="error" v-if="error">{{ error.message }}</div>
     </div>
@@ -48,7 +50,6 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
-          console.log("here");
           this.$router.replace({ name: "Shopping" });
         })
         .catch(error => (this.error = error));
@@ -73,17 +74,17 @@ button {
   width: 400px;
   height: 75px;
   font-size: 100%;
-    border-radius: 15px;
+  border-radius: 15px;
 }
 .container img {
   width: 100%;
   height: 50px;
 }
-.btn-primary{
+.btn-primary {
   font-size: 2rem;
 }
 @media all and (min-width: 768px) {
-    /* .main{
+  /* .main{
       background-color: #f00;
     } */
 }

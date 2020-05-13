@@ -74,7 +74,7 @@ export default {
           this.$router.push("/shopping");
         })
         .catch(error => {
-          console.log("error=", error);
+          
           this.error = error;
         });
       this.setspinner(false);

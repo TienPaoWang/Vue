@@ -67,9 +67,6 @@
       </b-collapse>
     </b-navbar>
     <!-- -->
-   
-
-
   </div>
 </template>
 
@@ -100,13 +97,10 @@ export default {
   methods: {
     ...mapActions(["setspinner"]),
     search() {
-      console.log("this.searchtext=", this.searchtext);
       this.$store.dispatch("reaschitem", this.searchtext);
     },
     CheckUserStatus() {
-      console.log("CheckUserStatus");
       const user = firebase.auth().onAuthStateChanged(user => {
-        console.log("user", user);
         if (user) {
           this.userstatus = true;
         } else {
@@ -114,7 +108,6 @@ export default {
         }
       });
       const isAuthenticated = firebase.auth().currentUser;
-      console.log("isAuthenticated", isAuthenticated);
     },
     async logout() {
       this.$store.dispatch("setspinner", true);

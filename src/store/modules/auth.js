@@ -8,7 +8,7 @@ const state = {
 }
 const getters = { 
     GET_SPINNER(state){
-        console.log("state.spinner=",state.spinner);
+     
         return state.spinner;
     }
 

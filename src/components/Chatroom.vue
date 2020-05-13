@@ -154,15 +154,15 @@ export default {
       let vm = this;
       vm.username = vm.tempusername;
       vm.tempusername = "";
-      console.log("vm.username=", vm.username);
+      
     },
     addmessage(e) {
-      console.log("addmessage");
+   
       let vm = this;
 
       const time = this.getTime();
       vm.message = vm.tempmessage;
-      console.log("vm.message=", vm.message);
+ 
 
       if (vm.username.trim() == "") {
         alert("Please input your name");
@@ -179,13 +179,13 @@ export default {
         timeStamp: time
       });
       vm.tempmessage = "";
-      console.log("addmessage");
+      
     },
 
     deletemessage(id) {
       let vm = this;
       const removemessage = vm.msgRef.child(id);
-      console.log("removemessage=", removemessage);
+    
       removemessage.remove();
     },
 
@@ -201,7 +201,7 @@ export default {
 
     /** 刪除訊息 */
     deleteMessage(id) {
-      console.log("id=", id);
+     
       const message = this.msgRef.child(id);
       message.remove();
     }
@@ -211,8 +211,6 @@ export default {
     const ref = dbdatabase.database().ref("/chatroom/");
     this.msgRef = ref;
     const vm = this;
-    console.log("chatroom mounted");
-    console.log("ref=", ref);
     this.msgRef.on("value", function(snapshot) {
       const val = snapshot.val();
 
@@ -222,7 +220,7 @@ export default {
       for (let i = 0; i < Object.keys(val).length; i++) {
         temp.push({ id: list[i], ...val[list[i]] });
       }
-      console.log("temp=", temp);
+    
 
       const messageData = val
         ? Object.keys(val).map(key => ({ id: key, ...val[key] }))
@@ -234,11 +232,11 @@ export default {
     const myref = dbdatabase.database().ref("/chatroom/");
     myref.on("value", function(snapshot) {
       const value = snapshot.val();
-      console.log("snapshot value", value);
+     
     });
   },
   updated() {
-    console.log("updated");
+    
     // const roombody = document.getElementById("#js-roomBody");
     // roombody.scrollTop = roombody.scrollHeight;
     const roomBody = document.querySelector("#js-roomBody");

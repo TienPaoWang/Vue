@@ -15,7 +15,7 @@
     </head>
 
     <!--Slide carousal -->
-    <section >
+    <section>
       <div>
         <div>
           <b-carousel
@@ -81,7 +81,13 @@
               <a href="#"> <h3>折抵換購，NT$19,400 起。</h3></a>
             </div>
             <div class="col-md-12 padding_15">
-              <button type="button" class="btn btn-primary" @click.prevent="redirt_shopping">購買</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click.prevent="redirt_shopping"
+              >
+                購買
+              </button>
             </div>
             <img
               src="../assets/hero_iphone_11__bsnxu2gpf98i_medium_2x.png"
@@ -104,7 +110,13 @@
               <h4>折抵換購，NT$28,800 起。</h4>
             </div>
             <div class="col-md-12 padding_15">
-              <button type="button" class="btn btn-primary" @click.prevent="redirt_shopping">購買</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click.prevent="redirt_shopping"
+              >
+                購買
+              </button>
             </div>
 
             <img
@@ -279,26 +291,21 @@ export default {
     };
   },
   mounted() {
-    console.log("mounted22222222");
     this.CheckUserStatus();
   },
   methods: {
     CheckUserStatus() {
-      console.log("CheckUserStatus222222222222222222222");
       const user = firebase.auth().onAuthStateChanged(user => {
-        console.log("user", user);
         if (user) {
           this.userstatus = true;
         } else {
           this.userstatus = false;
         }
       });
-      console.log("userstatus", this.userstatus);
+
       const isAuthenticated = firebase.auth().currentUser;
-      console.log("isAuthenticated222222222=", isAuthenticated);
     },
-    redirt_shopping(){
-      console.log("redirt_shopping");
+    redirt_shopping() {
       this.$router.push("/shopping");
     }
   }

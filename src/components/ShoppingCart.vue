@@ -66,7 +66,7 @@ export default {
   methods: {
     ...mapActions(["removeitemcart", "showshoppingmodal"]),
     totalprice() {
-      console.log("totalprice");
+    
       this.totalproducts = this.$store.getters.GET_PRODUCTS;
       this.totalnumber = this.totalproducts.length;
       this.totalitemprice = this.totalproducts.reduce((accumulator, item) => {
@@ -75,11 +75,11 @@ export default {
       return this.totalitemprice;
     },
     remove(index) {
-      console.log("removeitem item=", index);
+     
       this.$store.dispatch("removeitemcart", index);
     },
     showmode() {
-      console.log("showmode=");
+     
       this.showshoppingmodal();
     }
   }
