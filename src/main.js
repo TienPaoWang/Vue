@@ -10,6 +10,14 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import vuetron from 'vuetron'; //for debug
 Vue.use(vuetron.VuetronVue);
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+import { library } from '@fortawesome/fontawesome-svg-core' // this is for fontawesome
+import { fas } from '@fortawesome/free-solid-svg-icons' // this is for fontawesome solid
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome' // add the vue fontawesome
+library.add(fas); // add the fas into library
+import { dom } from '@fortawesome/fontawesome-svg-core'
+dom.watch();
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyBkBLLFEQqHhl_QAHP0jLEFU6B0_rPBQ2I",

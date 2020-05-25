@@ -10,6 +10,9 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/vue-fontawesome": "^0.1.9",
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.1.0",
     "express": "^4.17.1",
