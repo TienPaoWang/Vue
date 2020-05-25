@@ -1,0 +1,6 @@
+.header{
+background-color: #ffaa;
+grid-column: full-start / col-end 6 ;
+display: grid;
+grid-template-rows: repeat(5, 1fr);
+}

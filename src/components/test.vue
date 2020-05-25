@@ -1,224 +1,286 @@
 <template>
-   <!-- Masthead-->
-    <div>
-        <header class="masthead">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">Your Favorite Source of Free Bootstrap Themes</h1>
-                        <hr class="divider my-4" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container">
-                <div class="row about justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">We've got what you need!</h2>
-                        <hr class="divider light my-4" />
-                        <p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <h2 class="text-center mt-0">At Your Service</h2>
-                <hr class="divider my-4" />
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Up to Date</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Made with Love</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Portfolio-->
-        <section id="portfolio">
-            <div class="container-fluid p-0">
-                <div class="row no-gutters">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg"
-                            ><img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div></a
-                        >
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg"
-                            ><img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div></a
-                        >
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://picsum.photos/id/68/1200/400"
-                            ><img class="img-fluid" src="https://picsum.photos/id/68/1200/400" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div></a
-                        >
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://picsum.photos/id/68/1200/400"
-                            ><img class="img-fluid" src="https://picsum.photos/id/68/1200/400" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div></a
-                        >
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://picsum.photos/id/68/1200/400"
-                            ><img class="img-fluid" src="https://picsum.photos/id/68/1200/400" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div></a
-                        >
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="https://picsum.photos/id/68/1200/400"
-                            ><img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="" />
-                            <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50">Category</div>
-                                <div class="project-name">Project Name</div>
-                            </div></a
-                        >
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Call to action-->
-        <section class="page-section bg-dark text-white">
-            <div class="container text-center">
-                <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-                <a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
-            </div>
-        </section>
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="mt-0">Let's Get In Touch!</h2>
-                        <hr class="divider my-4" />
-                        <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-                        <div>+1 (555) 123-4567</div>
-                    </div>
-                    <div class="col-lg-4 mr-auto text-center">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i
-                        ><!-- Make sure to change the email address in BOTH the anchor text and the link target below!--><a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
-        </footer>
-       </div>
+  <div>
+    <body class="maincontainer">
+      <div class="siderbar">siderbar</div>
+      <div class="header">
+        <div class="header_title"></div>
+        <div class="header_name"> 
+          <h2>  Your own home</h2>
+          <h1>The ultimate personal freedom</h1>
+        </div>
+        <div>
+             <button class="header_button btn btn-primary"> View our properties  </button>  
+        </div>
+       
+        <div class="header_span">Seen on</div>
+        <div class="header_icon">
+         <i class="fa fa-camera-retro"></i>
+          <i class="fas fa-ad"></i>
+          <i class="fas fa-ad"></i>
+          <i class="fas fa-ad"></i>
+
+
+        </div>
+      </div>
+      <div class="realtors">realtors</div>
+      <section class="features">
+        <div class="feacture">
+          <i class="fa fa-accessible-icon"></i>
+          <h1>feacture 1</h1>
+        </div>
+        <div class="feacture">
+          <i class="far fa-address-book"></i>
+          <h1>feacture 2</h1>
+        </div>
+        <div class="feacture">
+          <i class="fa fa-adversal"></i>
+          <h1>feacture 3</h1>
+        </div>
+        <div class="feacture">
+          <i class="fa fa-affiliatetheme"></i>feacture 4
+        </div>
+        <div class="feacture">feacture 5</div>
+        <div class="feacture">feacture 6</div>
+      </section>
+
+      <!----------------------------------------------------- Story ---------------------------->
+      <div class="story_pictures">
+        <img src="../assets/img/gal-1.jpeg" alt="" class="story_imag--1" />
+
+        <img src="../assets/img/gal-2.jpeg" alt="" class="story_imag--2" />
+      </div>
+      <div class="story_content">
+        <div>Happy customer</div>
+        <div>lasdajsdlajsjdasldajsdj</div>
+        <div>
+          dsfhsdhfkjshdkfhksjdhfkjhsdjkfhsjkdfhkjshdfkhkdshfkhsdkfhksdhfkshdkfhsdkfhsdjkfhk
+        </div>
+        <button class="btn btn-primary ">find your own time</button>
+      </div>
+      <!--------------------------Home ------------------------->
+      <section class="homes">
+        <!--------------------------Home1------------------------->
+        <div class="home">
+          <div class="home_image">
+            <img src="../assets/img/gal-4.jpeg" alt="" class="home_image" />
+          </div>
+          <div class="home_like">
+            <i class="fa fa-heart fa-3x "></i>
+          </div>
+          <h5 class="home_name">Beautiful Familiy House</h5>
+          <div class="home_location">
+            <p>USA</p>
+          </div>
+          <div class="home_rooms">
+            <p>5 rooms</p>
+          </div>
+          <div class="home_area">
+            <p>325 m<sup>2</sup></p>
+          </div>
+          <div class="home_price">
+            <p>$1,200,000</p>
+          </div>
+          <button class="btn btn-primary home_button">Contact realtor</button>
+        </div>
+
+        <!--------------------------Home2------------------------->
+        <div class="home">
+          <div class="home_image">
+            <img src="../assets/img/gal-4.jpeg" alt="" class="home_image" />
+          </div>
+          <div class="home_like">
+            <i class="fa fa-heart fa-3x "></i>
+          </div>
+          <h5 class="home_name">Beautiful Familiy House</h5>
+          <div class="home_location">
+            <p>USA</p>
+          </div>
+          <div class="home_rooms">
+            <p>5 rooms</p>
+          </div>
+          <div class="home_area">
+            <p>325 m<sup>2</sup></p>
+          </div>
+          <div class="home_price">
+            <p>$1,200,000</p>
+          </div>
+          <button class="btn btn-primary home_button">Contact realtor</button>
+        </div>
+
+        <!--------------------------Home3------------------------->
+        <div class="home">
+          <div class="home_image">
+            <img src="../assets/img/gal-4.jpeg" alt="" class="home_image" />
+          </div>
+          <div class="home_like">
+            <i class="fa fa-heart fa-3x "></i>
+          </div>
+          <h5 class="home_name">Beautiful Familiy House</h5>
+          <div class="home_location">
+            <p>USA</p>
+          </div>
+          <div class="home_rooms">
+            <p>5 rooms</p>
+          </div>
+          <div class="home_area">
+            <p>325 m<sup>2</sup></p>
+          </div>
+          <div class="home_price">
+            <p>$1,200,000</p>
+          </div>
+          <button class="btn btn-primary home_button">Contact realtor</button>
+        </div>
+
+        <!--------------------------Home4------------------------->
+        <div class="home">
+          <div class="home_image">
+            <img src="../assets/img/gal-4.jpeg" alt="" class="home_image" />
+          </div>
+          <div class="home_like">
+            <i class="fa fa-heart fa-3x "></i>
+          </div>
+          <h5 class="home_name">Beautiful Familiy House</h5>
+          <div class="home_location">
+            <p>USA</p>
+          </div>
+          <div class="home_rooms">
+            <p>5 rooms</p>
+          </div>
+          <div class="home_area">
+            <p>325 m<sup>2</sup></p>
+          </div>
+          <div class="home_price">
+            <p>$1,200,000</p>
+          </div>
+          <button class="btn btn-primary home_button">Contact realtor</button>
+        </div>
+
+        <!--------------------------Home5------------------------->
+        <div class="home">
+          <div class="home_image">
+            <img src="../assets/img/gal-4.jpeg" alt="" class="home_image" />
+          </div>
+          <div class="home_like">
+            <i class="fa fa-heart fa-3x "></i>
+          </div>
+          <h5 class="home_name">Beautiful Familiy House</h5>
+          <div class="home_location">
+            <p>USA</p>
+          </div>
+          <div class="home_rooms">
+            <p>5 rooms</p>
+          </div>
+          <div class="home_area">
+            <p>325 m<sup>2</sup></p>
+          </div>
+          <div class="home_price">
+            <p>$1,200,000</p>
+          </div>
+          <button class="btn btn-primary home_button">Contact realtor</button>
+        </div>
+
+        <!--------------------------Home6------------------------->
+        <div class="home">
+          <div class="home_image">
+            <img src="../assets/img/gal-4.jpeg" alt="" class="home_image" />
+          </div>
+          <div class="home_like">
+            <i class="fa fa-heart fa-3x "></i>
+          </div>
+          <h5 class="home_name">Beautiful Familiy House</h5>
+          <div class="home_location">
+            <p>USA</p>
+          </div>
+          <div class="home_rooms">
+            <p>5 rooms</p>
+          </div>
+          <div class="home_area">
+            <p>325 m<sup>2</sup></p>
+          </div>
+          <div class="home_price">
+            <p>$1,200,000</p>
+          </div>
+          <button class="btn btn-primary home_button">Contact realtor</button>
+        </div>
+      </section>
+      <!-------------------------Gallery------------------------>
+      <section class="gallery">
+        <figure class="gallery_item gallery_item-1">
+          <img src="../assets/img/gal-1.jpeg" alt="" class="gallery_img" />
+        </figure>
+
+        <figure class="gallery_item gallery_item-2">
+          <img src="../assets/img/gal-2.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-3">
+          <img src="../assets/img/gal-3.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-4">
+          <img src="../assets/img/gal-4.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-5">
+          <img src="../assets/img/gal-5.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-6">
+          <img src="../assets/img/gal-6.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-7">
+          <img src="../assets/img/gal-7.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-8">
+          <img src="../assets/img/gal-8.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-9">
+          <img src="../assets/img/gal-9.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-10">
+          <img src="../assets/img/gal-10.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-11">
+          <img src="../assets/img/gal-11.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-12">
+          <img src="../assets/img/gal-12.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-13">
+          <img src="../assets/img/gal-13.jpeg" alt="" class="gallery_img" />
+        </figure>
+        <figure class="gallery_item gallery_item-14">
+          <img src="../assets/img/gal-14.jpeg" alt="" class="gallery_img" />
+        </figure>
+      </section>
+      <section class="footer">
+        <div class="footer-items">
+          <div class="footer-item">Find your dream home</div>
+          <div class="footer-item">Request proposal</div>
+          <div class="footer-item">Download home planner</div>
+          <div class="footer-item">Contact us</div>
+          <div class="footer-item">Submit your property</div>
+          <div class="footer-item">Come work with us!</div>
+        </div>
+        <p class="copyright">
+          &copy; Copyright 2017 by Jonas Schmedtmann. Feel free to use this
+          project for your own purposes. This does NOT apply if you plan to
+          produce your own course or tutorials based on this project.
+        </p>
+      </section>
+    </body>
+  </div>
 </template>
 
 <script>
-export default {
+import "../assets/css/compontent/_header.scss";
+import "../assets/css/compontent/_realtors.scss";
+import "../assets/css/compontent/_siderbar.scss";
+import "../assets/css/compontent/_story_pictures.scss";
 
-}
+import "../assets/css/compontent/_gallery.scss";
+import "../assets/css/compontent/_features.scss";
+import "../assets/css/compontent/_homes.scss";
+import "../assets/css/compontent/_footer.scss";
+import "../assets/_base.scss";
+export default {};
 </script>
 
-<style scoped>
-.about{
-    justify-content: center;
-}
-.bg-primary {
-  background-color: #f4623a !important;
-}
-.justify-content-center {
-  justify-content: center !important;
-}
-.text-center {
-  text-align: center !important;
-}
-hr.divider {
-  max-width: 3.25rem;
-  border-width: 0.2rem;
-  border-color: #f4623a;
-}
-
-.align-self-baseline {
-  align-self: baseline !important;
-}
-.text-muted {
-  color: #6c757d !important;
-}
-.text-primary {
-  color: #f4623a !important;
-}
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category {
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-name {
-  font-size: 1.2rem;
-}
-#portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption {
-  opacity: 1;
-}
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-}
-.page-section {
-  padding: 8rem 0;
-}
-
-.ml-auto,
-.mx-auto {
-  margin-left: auto !important;
-}
-
+<style lang="scss" scoped>
 </style>

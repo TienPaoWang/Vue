@@ -93,7 +93,7 @@ const actions = {
             setTimeout(async () => {
                 const res = await fetch("job.json");
                 const val = await res.json();
-
+                console.log("val=",val);
                 resolve(val);
             }, 1000);
         })
@@ -130,10 +130,9 @@ const actions = {
 
         dispatch("display", { val: searcharray, currentpage: 1, perpage: state.perpage });
         commit("SET_TOTAL", searcharray);
-        commit("SET_PAGE", 1);
     },
-    async getpage({ commit }, val) {
-        const page = await Math.ceil(val.length / state.perpage);
+     getpage({ commit }, val) {
+        const page =  Math.ceil(val.length / state.perpage);
 
         commit("SET_PAGE", page);
     },

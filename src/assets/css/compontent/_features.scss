@@ -1,0 +1,10 @@
+.features{
+
+    background-color: #ff987f;
+    grid-column: center-start / center-end;
+    margin: 150px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 60px;
+    
+}
